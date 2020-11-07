@@ -5,31 +5,43 @@ Created on Mon Jul 23 14:02:08 2018
 @author: Samuel
 """
 import matplotlib.pyplot as plt
-fin=0
+
 n=0
 ListeNoeuds=[]
-while fin==0 :
-    print("ajouter noeud ? (oui/non)")
+
+while True:
+    print("ajouter noeud ? (y/n)")
     res=input()
-    if res=="non":
-        fin=1
-    elif res=="oui":
+    if res=="n":
+        break
+    elif res=="y":
         print("coordonnée en x")
-        x=int(input())
+        while True:
+            try :
+                x=float(input())
+                break
+            except :
+                print('entrer un nombre')
         print("coordonnée en y")
-        y=int(input())
+        while True:
+            try :
+                y=float(input())
+                break
+            except :
+                print('entrer un nombre')
         ListeNoeuds.append([x,y])
     else :
-        print("erreur, veuiller entrer oui ou non")
-fin=0
+        print("erreur, veuiller entrer y ou n")
+
 n=0
 ListeBarres=[]
-while fin==0 :
-    print("ajouter barre ? (oui/non)")
+
+while True:
+    print("ajouter barre ? (y/n)")
     res=input()
-    if res=="non":
-        fin=1
-    elif res=="oui":
+    if res=="n":
+        break
+    elif res=="y":
         print("noeud 1 ou -1 si appui sol")
         n1=int(input())
         print("type liaison ? (encastrement e, articulation a, appui simple ap)")
@@ -41,7 +53,7 @@ while fin==0 :
         ListeBarres.append([n1,l1,n2,l2])
         n+=1
     else :
-        print("erreur, veuiller entrer oui ou non")   
+        print("erreur, veuiller entrer y ou n")   
         
 b=len(ListeBarres)
 pN=0
